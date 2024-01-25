@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="WEB LOGO.png">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="homestyle.css">
+    </head>
+    <body>
+
+        <section class="home">
+           <video class="video-slide active" src="peace.mp4" autoplay muted loop></video>
+           <video class="video-slide" src="register.mp4" autoplay muted loop></video> 
+           <video class="video-slide" src="login.mp4" autoplay muted loop></video> 
+           <video class="video-slide" src="mood.mp4" autoplay muted loop></video> 
+           <video class="video-slide" src="diary.mp4" autoplay muted loop></video> 
+            <div class="content active">
+                <h1>Dwell into<br><span>your own</span><br><span>Safe space</span></h1>
+                <p>Track your mood, write all your emotions and find your own private safe space.</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+            
+            <div class="content">
+                <h1>Register your<br><span>Account</span></h1>
+                <p>Create your own personalized account and save your progress.</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+            <div class="content">
+                <h1>Login your<br><span>Account</span></h1>
+                <p>Track your mood progress and writing sessions with your account.</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+            <div class="content">
+                <h1>Track your<br><span>Mood using</span><br><span>Mood Tracker</span></h1>
+                <p>Explore your moods every each day and get to know them.</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+            <div class="content">
+                <h1>Write your own<br><span>Diary</span></h1>
+                <p>Release all your emotions through writing in your own Diary.</p>
+                <a href="#" onclick="redirectToLogin();">Start Now</a>
+            </div>
+            <div class="slider-navigation">
+                <div class="nav-btn active"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+            </div>
+        </section>
+
+        <script type="text/javascript">
+            //vid slider navigation
+            const btns = document.querySelectorAll(".nav-btn");
+            const slides = document.querySelectorAll(".video-slide");
+            const contents = document.querySelectorAll(".content");
+
+            var sliderNav = function(manual){
+                btns.forEach((btn) => {
+                    btn.classList.remove("active");
+                });
+
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+
+                contents.forEach((content) => {
+                    content.classList.remove("active");
+                });
+
+                btns[manual].classList.add("active");
+                slides[manual].classList.add("active");
+                contents[manual].classList.add("active");
+            }
+
+            btns.forEach((btn, i) => {
+                btn.addEventListener("click", () => {
+                    sliderNav(i);
+                });
+            });
+            
+        function redirectToLogin(){
+            window.location.href = 'http://127.0.0.1:5500/login.html';
+        }
+        
+        </script>
+
+    </body>
+</html>
